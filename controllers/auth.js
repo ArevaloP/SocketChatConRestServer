@@ -96,7 +96,22 @@ const googleAuth = async (req = request, res = response) => {
   }
 };
 
+const renovarToken = async (req=request, res=response)=>{
+
+  const {usuarioAuth} = req;
+
+  //Generar JWT
+  const token = await generarJWT(usuarioAuth.id);
+
+  res.json({
+    usuarioAuth,
+    token
+  });
+
+}
+
 module.exports = {
   loginController,
   googleAuth,
+  renovarToken
 };

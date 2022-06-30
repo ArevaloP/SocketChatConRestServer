@@ -10,7 +10,7 @@ const validarJWT = async (req=request , res=response, next)=>{
     if(!token){
         return res.status(401).json({
             msg: 'No hay token en la peticion'
-        });
+        }); 
     }
 
     try {
